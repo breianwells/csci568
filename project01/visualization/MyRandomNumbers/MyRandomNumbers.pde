@@ -16,11 +16,7 @@ void setup() {
     background(0);
     smooth();
     int[] numbers=getNumbers();
-    barGraph(numbers,100);
-    
-    for (int i = 1; i < 7; i++) {
- int[] randoms = getRandomNumbers(225);
- colorGrid(numbers, 50, 50, 70);
+    colorGrid(numbers, 50, 50, 70);
  };
 }
 
