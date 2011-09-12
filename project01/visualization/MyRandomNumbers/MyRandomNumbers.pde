@@ -12,6 +12,7 @@ String googlePass = GPASS;
   
 void setup() {
     //This code happens once, right when our sketch is launched
+<<<<<<< HEAD
     size(800,800);
     background(0);
     smooth();
@@ -46,5 +47,15 @@ void barGraph(int[] nums, float y) {
 
 void draw() {  
     
+=======
+    size(500,500);
+    background(0);
+    smooth();
+
+}
+
+void draw() {
+  //This code happens once every frame.
+>>>>>>> 2db6f6fd207a038a50ee4ac45e520f052a8a5457
 }
 
