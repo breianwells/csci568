@@ -1,0 +1,98 @@
+package similarity_metrics;
+import java.util.Random;
+
+public class Similarity {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		double[]a;
+		double[]b;
+		int i
+		Random gen = new Random(System.currentTimeMillis());
+		a=new double[5];
+		b=new double[5];
+		for(i=0;i<5;i++){
+			a[i]=gen.nextInt(5)+1;
+			b[i]=gen.nextInt(5)+1;
+		}
+		System.out.println("Euclidean Distance Test");
+		System.out.println("Object 1:");		
+		for(i=0;i<5;i++){
+			System.out.println(a[i]);
+		}
+		System.out.println("Object 2:");		
+		for(i=0;i<5;i++){
+			System.out.println(b[i]);
+		}
+		System.out.println("Result:");
+		System.out.println(euclidean(a,b));
+		System.out.println("Normalized Euclidean Result:");
+		System.out.println(euclidean(a,b,1,5));
+
+	}
+	
+	//non normalized euclidean distance
+	//returns a double
+	//negative one indicates incorrect sizing between a and b
+	
+	public static double euclidean(double[]a,double[]b){
+		double ret=0;
+		if(a.length==b.length){
+			for(int i =0; i<a.length;i++){
+				ret=ret+(a[i]-b[i])*(a[i]-b[i]);
+			}
+			ret=Math.sqrt(ret);
+		}
+		else{
+			ret=-1;
+		}
+		return ret;
+	}
+	
+	//normalized euclidean distance
+	//returns a double between 0 and 1
+	//negative one indicates incorrect sizing between a and b
+	
+	public static double euclidean(double[]a,double[]b,double[]min,double[]max){
+		double ret=0;
+		double maxval=0;
+		if(a.length==b.length){
+			for(int i =0; i<a.length;i++){
+				ret=ret+(a[i]-b[i])*(a[i]-b[i]);
+				maxval=maxval+(max[i]-min[i])*(max[i]-min[i]);
+			}
+			ret=Math.sqrt(ret);
+			ret=ret/Math.sqrt(maxval);
+		}
+		else{
+			ret=-1;
+		}
+		return ret;
+	}
+	
+	//normalized euclidean distance
+	//returns a double between 0 and 1
+	//negative one indicates incorrect sizing between a and b
+	
+	public static double euclidean(double[]a,double[]b,double min, double max){
+
+		double ret=0;
+		double maxval=0;
+		maxval=(max-min)*(max-min)*a.length;
+		if(a.length==b.length){
+			for(int i =0; i<a.length;i++){
+				ret=ret+(a[i]-b[i])*(a[i]-b[i]);
+			}
+			ret=Math.sqrt(ret);
+			ret=ret/Math.sqrt(maxval);
+		}
+		else{
+			ret=-1;
+		}
+		return ret;
+		
+	}
+
+}

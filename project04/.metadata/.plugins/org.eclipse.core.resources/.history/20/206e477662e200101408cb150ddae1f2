@@ -1,0 +1,22 @@
+package similarity_metrics;
+
+public class Similarity {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	//non normalized euclidean distance
+	//returns a double
+	
+	public static double euclidean(double[]a,double[]b){
+		double ret=0;
+		
+		return ret;
+	}
+
+}

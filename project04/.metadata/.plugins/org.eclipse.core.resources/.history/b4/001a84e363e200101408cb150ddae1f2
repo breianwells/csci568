@@ -1,0 +1,53 @@
+package similarity_metrics;
+
+
+public class Similarity {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		
+
+	}
+	
+	//non normalized euclidean distance
+	//returns a double
+	
+	public static double euclidean(double[]a,double[]b){
+		double ret=0;
+		if(a.length==b.length){
+			for(int i =0; i<a.length;i++){
+				ret=ret+(a[i]-b[i])*(a[i]-b[i]);
+			}
+			ret=Math.sqrt(ret);
+		}
+		else{
+			ret=-1;
+		}
+		return ret;
+	}
+	
+	//normalized euclidean distance
+	//returns a double between 0 and 1
+	
+	public static double normalEuclidean(double[]a,double[]b,double[]min,double[]max){
+		double ret=0;
+		double maxval=0;
+		if(a.length==b.length){
+			for(int i =0; i<a.length;i++){
+				ret=ret+(a[i]-b[i])*(a[i]-b[i]);
+				maxval=maxval+(max[i]-min[i])*(max[i]-min[i]);
+			}
+			ret=Math.sqrt(ret);
+			ret=ret/Math.sqrt(maxval);
+		}
+		else{
+			ret=-1;
+		}
+		return ret;
+	}
+	
+	
+
+}
