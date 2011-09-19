@@ -35,7 +35,6 @@ public class Similarity {
 			a[i]=gen.nextInt(2);
 			b[i]=gen.nextInt(2);
 		}
-		System.out.println();
 		System.out.println("Simple Matching Coefficient Test");
 		System.out.println("Object 1:");		
 		for(i=0;i<5;i++){

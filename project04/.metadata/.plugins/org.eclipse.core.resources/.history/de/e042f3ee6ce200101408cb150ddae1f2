@@ -32,10 +32,9 @@ public class Similarity {
 		System.out.println(euclidean(a,b,1,5));
 
 		for(i=0;i<5;i++){
-			a[i]=gen.nextInt(2);
-			b[i]=gen.nextInt(2);
+			a[i]=gen.nextInt(1);
+			b[i]=gen.nextInt(1);
 		}
-		System.out.println();
 		System.out.println("Simple Matching Coefficient Test");
 		System.out.println("Object 1:");		
 		for(i=0;i<5;i++){
