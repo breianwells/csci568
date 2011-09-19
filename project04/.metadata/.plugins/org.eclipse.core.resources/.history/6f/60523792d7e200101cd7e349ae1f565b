@@ -30,8 +30,6 @@ public class Similarity {
 		System.out.println(euclidean(a,b));
 		System.out.println("Normalized Euclidean Result:");
 		System.out.println(euclidean(a,b,1,5));
-		System.out.println("Pearson Correlation Result:");
-		System.out.println(pearson(a,b));
 
 		for(i=0;i<5;i++){
 			a[i]=gen.nextInt(2);
@@ -158,37 +156,6 @@ public class Similarity {
 		else{
 			ret=-1;
 		}
-		return ret;
-	}
-
-	//Pearson Correlation
-	//returns a normalized double
-	//negative two indicates different sized a,b
-	
-	public static double pearson(double[]a,double[]b){
-		double ret;
-		double sum1=0,sum2=0,sum1sq=0,sum2sq=0,psum=0;
-		double denominator;
-		if(a.length==b.length){
-			for(int i=0;i<a.length;i++){
-				sum1=sum1+a[i];
-				sum2=sum2+b[i];
-				sum1sq=sum1sq+a[i]*a[i];
-				sum2sq=sum2sq+b[i]*b[i];
-				psum=psum+a[i]*b[i];
-			}
-			denominator=Math.sqrt((sum1sq-sum1*sum1/a.length)*(sum2sq-sum2*sum2/a.length));
-			if(denominator==0){
-				ret=0;
-			}
-			else{
-				ret=(psum-sum1*sum2/a.length)/denominator;
-			}
-		}
-		else{
-			ret=-2;
-		}
-		
 		return ret;
 	}
 }

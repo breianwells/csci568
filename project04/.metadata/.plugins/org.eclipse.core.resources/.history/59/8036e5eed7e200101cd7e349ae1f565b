@@ -160,10 +160,6 @@ public class Similarity {
 		}
 		return ret;
 	}
-
-	//Pearson Correlation
-	//returns a normalized double
-	//negative two indicates different sized a,b
 	
 	public static double pearson(double[]a,double[]b){
 		double ret;
@@ -186,7 +182,7 @@ public class Similarity {
 			}
 		}
 		else{
-			ret=-2;
+			ret=-1;
 		}
 		
 		return ret;
