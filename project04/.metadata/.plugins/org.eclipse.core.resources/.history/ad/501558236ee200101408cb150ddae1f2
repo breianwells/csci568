@@ -17,7 +17,7 @@ public class Similarity {
 			a[i]=gen.nextInt(5)+1;
 			b[i]=gen.nextInt(5)+1;
 		}
-		System.out.println("Non Boolean Tests");
+		System.out.println("Euclidean Distance Test");
 		System.out.println("Object 1:");		
 		for(i=0;i<5;i++){
 			System.out.println(a[i]);
@@ -26,7 +26,7 @@ public class Similarity {
 		for(i=0;i<5;i++){
 			System.out.println(b[i]);
 		}
-		System.out.println("Euclidean Result:");
+		System.out.println("Result:");
 		System.out.println(euclidean(a,b));
 		System.out.println("Normalized Euclidean Result:");
 		System.out.println(euclidean(a,b,1,5));
@@ -36,7 +36,7 @@ public class Similarity {
 			b[i]=gen.nextInt(2);
 		}
 		System.out.println();
-		System.out.println("Boolean Tests");
+		System.out.println("Simple Matching Coefficient Test");
 		System.out.println("Object 1:");		
 		for(i=0;i<5;i++){
 			System.out.println(a[i]);
@@ -45,10 +45,8 @@ public class Similarity {
 		for(i=0;i<5;i++){
 			System.out.println(b[i]);
 		}
-		System.out.println("SMC Result:");
+		System.out.println("Result:");
 		System.out.println(simpleMatching(a,b));
-		System.out.println("Jaccard Result:");
-		System.out.println(jaccard(a,b));
 	}
 	
 	//non normalized euclidean distance
@@ -133,12 +131,8 @@ public class Similarity {
 		}	
 		return ret;
 	}
-	
-	//Jaccard Similarity
-	//returns a normalized double
-	//negative one indicates different sized a,b
 
-	public static double jaccard(double[]a,double[]b){
+	public static double Jaccard(double[]a,double[]b){
 		double ret=0;
 		double divisor=0;
 		int i;
