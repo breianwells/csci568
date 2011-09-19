@@ -32,8 +32,6 @@ public class Similarity {
 		System.out.println(euclidean(a,b,1,5));
 		System.out.println("Pearson Correlation Result:");
 		System.out.println(pearson(a,b));
-		System.out.println("Cosine Similarity Result:");
-		System.out.println(cosine(a,b));
 
 		for(i=0;i<5;i++){
 			a[i]=gen.nextInt(2);
