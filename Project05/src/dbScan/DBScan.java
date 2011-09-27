@@ -1,5 +1,7 @@
 package dbScan;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 public class DBScan {
@@ -56,9 +58,61 @@ public class DBScan {
 				j=0;
 			}
 		}
-		ret=kthDist[i-3];
-		System.out.println(ret);
-		System.out.println(i-3);
+		ret=kthDist[i-22];
+		return ret;
+	}
+	
+	public static Vector<String> dbScan(int numpoints, double eps,Vector<double[]> data){
+		Vector<String> ret;
+		ret=new Vector<String>();
+		ArrayList<Integer> pending,nearpoints;
+		pending = new ArrayList<Integer>();
+		int currentset=0;
+		int i,j;
+		boolean isset;
+		int pointCount;
+		for(i=0;i<data.size();i++){
+			ret.add("Noise");
+		}
+		for(i=0;i<data.size();i++){
+			if(ret.get(i).startsWith("Noise")){
+				isset=false;
+				pending.add(i);
+				while(pending.size()>0){
+					nearpoints=new ArrayList<Integer>();
+					pointCount=0;
+					for(j=0;j<data.size();j++){
+						if(j!=i){
+							if(similarity_metrics.Similarity.euclidean(data.get(pending.get(0)), data.get(j))<eps){
+								pointCount++;
+								if(ret.get(j).startsWith("Noise")){
+									nearpoints.add(j);
+								}
+							}
+						}
+					}
+					if(pointCount>numpoints){
+						isset=true;
+						ret.set(pending.get(0),""+currentset);
+						for(j=0;j<nearpoints.size();j++){
+							if(!pending.contains(nearpoints.get(j))){
+								pending.add(nearpoints.get(j));
+							}
+							if(ret.get(pending.get(j)).startsWith("Noise")){
+								ret.set(nearpoints.get(j), ""+currentset);
+							}
+						}
+					}
+					pending.remove(0);
+				}
+				if(isset){
+					currentset++;
+				}
+			}
+		}
+		for(i=0;i<data.size();i++){
+			System.out.println(i+":"+ret.get(i));
+		}
 		return ret;
 	}
 }

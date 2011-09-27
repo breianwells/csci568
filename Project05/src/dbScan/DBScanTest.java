@@ -10,8 +10,10 @@ public class DBScanTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Vector<double[]> data;	
+		double eps;
 		data=FileIO.ReadFile("iris.csv");
-		DBScan.getEPS(4, data);
+		eps=DBScan.getEPS(4, data);
+		DBScan.dbScan(4, eps, data);
 	}
 
 }
