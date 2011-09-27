@@ -11,7 +11,7 @@ public class DBScanTest {
 		// TODO Auto-generated method stub
 		Vector<double[]> data;	
 		data=FileIO.ReadFile("iris.csv");
-		
+		DBScan.getEPS(4, data);
 	}
 
 }

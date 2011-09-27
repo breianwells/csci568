@@ -19,28 +19,31 @@ public class FileIO {
 			temp=new Vector<String>();
 			bufRdr= new BufferedReader(new FileReader(FileName));
 			while((line = bufRdr.readLine()) != null){
-					Tokens=line.split(",");
-					for(i=0;i<Tokens.length;i++){
-						
-						try{
-							Double.parseDouble(Tokens[i]);
-							temp.add(Tokens[i]);
-						}
-						catch(NumberFormatException e){
-							
-						}
-					}
+				temp.clear();
+				Tokens=line.split(",");
+				for(i=0;i<Tokens.length;i++){
 					
-					current=new double[temp.size()];
-					for(i=0;i<temp.size();i++){
-						try{
-							current[i]=Double.parseDouble(temp.get(i));
-						}
-						catch(NumberFormatException e){
-						
-						}		
+					try{
+						Double.parseDouble(Tokens[i]);
+						temp.add(Tokens[i]);
 					}
+					catch(NumberFormatException e){
+						
+					}
+				}
+				
+				current=new double[temp.size()];
+				for(i=0;i<temp.size();i++){
+					try{
+						current[i]=Double.parseDouble(temp.get(i));
+					}
+					catch(NumberFormatException e){
+					
+					}		
+				}
+				if(temp.size()>0){
 					ret.add(current);
+				}
 			}
 			return ret;
 		} catch (FileNotFoundException e) {
