@@ -1,7 +1,6 @@
 package dbScan;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Vector;
 
 public class DBScan {
@@ -58,7 +57,8 @@ public class DBScan {
 				j=0;
 			}
 		}
-		ret=kthDist[i-22];
+		ret=kthDist[i-20];
+		//System.out.println(ret);
 		return ret;
 	}
 	
