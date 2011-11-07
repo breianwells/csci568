@@ -12,5 +12,12 @@ public class Edge {
 	public double getValue(){
 		return weight*startNode.getValue();
 	}
+	
+	public void increaseValue(double ammount){
+		double currentVal=this.getValue();
+		double newval = currentVal+ammount;
+		weight=weight*newval/currentVal;
+		
+	}
 
 }

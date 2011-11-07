@@ -57,12 +57,25 @@ public class ANN {
 		startLayer.get(index).setValue(val);
 	}
 	
+	public void runBackPropegate(int index,double value){
+		finalLayer.get(index).backPropegate(value);
+	}
+	
 	public static void main(String[] args){
 		ANN myANN=new ANN(3,2,3);
 		myANN.setStartValue(0,1);
 		myANN.setStartValue(1,.25);
 		myANN.setStartValue(2,-.5);
 		myANN.calculateNodes();
+		System.out.println("Original Values of Nodes:");
+		System.out.println(myANN.getFinalValue(0));
+		System.out.println(myANN.getFinalValue(1));
+		System.out.println(myANN.getFinalValue(2));
+		myANN.runBackPropegate(0, 1);
+		myANN.runBackPropegate(1,-1);
+		myANN.runBackPropegate(2, 0);
+		myANN.calculateNodes();
+		System.out.println("Value of Nodes After Back Propegation:");
 		System.out.println(myANN.getFinalValue(0));
 		System.out.println(myANN.getFinalValue(1));
 		System.out.println(myANN.getFinalValue(2));
