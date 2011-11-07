@@ -20,7 +20,13 @@ public class Node {
 	}
 	
 	public double getValue(){
-		return value;
+		if(value>.5){
+			return 1;
+		}
+		if(value<-.5){
+			return -1;
+		}
+		return 0;
 	}
 	
 	public void calculateValue(){
