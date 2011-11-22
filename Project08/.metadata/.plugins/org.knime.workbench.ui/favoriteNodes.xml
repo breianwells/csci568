@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<favoritenodes>
+<personals/>
+<frequents>
+<favorite frequency="3" nodeid="org.knime.base.node.viz.statistics.Statistics2NodeFactory"/>
+<favorite frequency="3" nodeid="org.knime.base.node.mine.subgroupminer.SubgroupMinerFactory2"/>
+<favorite frequency="3" nodeid="org.knime.base.node.io.csvreader.CSVReaderNodeFactory"/>
+<favorite frequency="3" nodeid="org.knime.base.node.preproc.filter.nominal.NominalValueRowFilterNodeFactory"/>
+<favorite frequency="2" nodeid="org.knime.base.node.mine.cluster.kmeans.ClusterNodeFactory"/>
+<favorite frequency="2" nodeid="org.knime.base.node.mine.cluster.assign.ClusterAssignerNodeFactory"/>
+<favorite frequency="2" nodeid="org.knime.base.node.mine.subgroupminer.BitVectorGeneratorNodeFactory"/>
+<favorite frequency="1" nodeid="org.knime.base.node.preproc.cellsplit.CellSplitterNodeFactory"/>
+<favorite frequency="1" nodeid="org.knime.base.node.mine.neural.rprop.RPropNodeFactory"/>
+<favorite frequency="1" nodeid="org.knime.base.node.mine.decisiontree2.learner.DecisionTreeLearnerNodeFactory"/>
+<favorite frequency="1" nodeid="org.knime.base.node.preproc.filter.row.RowFilter2PortNodeFactory"/>
+<favorite frequency="1" nodeid="org.knime.base.node.preproc.filter.row.RowFilterNodeFactory"/>
+<favorite frequency="1" nodeid="org.knime.base.node.mine.decisiontreenew.predictor.DecTreePredictorNodeFactory"/>
+<favorite frequency="1" nodeid="org.knime.base.collection.list.create.CollectionCreateNodeFactory"/>
+<favorite frequency="1" nodeid="org.knime.base.node.viz.crosstable.CrosstabNodeFactory"/>
+</frequents>
+<lastused>
+<favorite nodeid="org.knime.base.node.mine.decisiontree2.learner.DecisionTreeLearnerNodeFactory"/>
+<favorite nodeid="org.knime.base.node.preproc.filter.row.RowFilter2PortNodeFactory"/>
+<favorite nodeid="org.knime.base.node.preproc.filter.row.RowFilterNodeFactory"/>
+<favorite nodeid="org.knime.base.node.mine.decisiontreenew.predictor.DecTreePredictorNodeFactory"/>
+<favorite nodeid="org.knime.base.collection.list.create.CollectionCreateNodeFactory"/>
+<favorite nodeid="org.knime.base.node.viz.crosstable.CrosstabNodeFactory"/>
+<favorite nodeid="org.knime.base.node.mine.subgroupminer.SubgroupMinerFactory2"/>
+<favorite nodeid="org.knime.base.node.io.csvreader.CSVReaderNodeFactory"/>
+<favorite nodeid="org.knime.base.node.mine.subgroupminer.BitVectorGeneratorNodeFactory"/>
+<favorite nodeid="org.knime.base.node.preproc.filter.nominal.NominalValueRowFilterNodeFactory"/>
+</lastused>
+</favoritenodes>

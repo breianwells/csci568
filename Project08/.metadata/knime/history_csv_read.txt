@@ -1,0 +1,3 @@
+/home/berian/Code/CS568/src/Project08/CleanedMushroomBin.csv
+/home/berian/Code/CS568/src/Project08/CleanedMushroom.csv
+/home/berian/Code/CS568/src/Project08/mushroom.csv
