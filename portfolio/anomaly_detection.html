@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<title>Anomaly Detection</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/main.css" type="text/css" media="screen" /> 
+<!--[if IE]>
+  <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+<![endif]-->
+</head>
+<body>
+<div class="container">
+  <h1>Data Mining Portfolio</h1>
+  <h2>Anomaly Detection</h2>
+  <p class="introduction">Anomalies are records in the dataset that are unusual in some way, either there is a mistake with the data like a person having a height of 70 feet. It could also have a combination of atrubytes that don't make sense together like a weight of 90 pounds and a height of 6 feet. Anomalies could also be legitimate records that are just incredibly rare for some reason. It is usually unclear what the cause of anomalies are or what should be done with them. In some cases they should be removed because they cause incorrect results, in other cases they are important to the analysis.</p>
+<h3>Clustering Based</h3>
+<p class="introduction">Clustering based anomaly detection is easy to run. Simply take a clustering algorithm and find clusters. In some algorithms like DBScan noise is already identified. In other algorithms you can find the distance of each point from the associated cluster, the points with the highest distance are candidates to be anomalies. Clustering based approaches are simple to implement and are a good way to strengthen clusters. The downside is the approach produces different results based on the clustering method used and in the case of K-Means, each time it is run. Clustering based approaches are the best options in most cases.</p>
+<h3>Density Based</h3>
+<p class="introduction">Density based approaches find the density around each point. This is done by finding all points within a certain radius of each point. If the number of points is below a certain thershold the point is flagged as an anomaly. Density based approaches are good at finding anomilies when there are several in a group. Density based approaches are very bad at dealing with places where there are natually occuring clusters that are different densities. The strength of density based approaches is when there are a large number of outliers the algorithm can find all of them.</p>
+<h3>Proximity Based</h3>
+<p class="introduction">Proximity based approachs find the distance to the k-th nearest record in the dataset. Using different values of k helps prevent two anomalous points from lowering eachothers distance. The idea behind using proximity is that an anomaly is often seperated from other points. Proximity based metrics work well when the anomalies are seperated from the rest of the dataset. Proximity based approches are week when there are many anomalies in the same area.</p>
+<h3>Statistical Methods</h3>
+<p class="introduction">The simplest statistical approach is standard deviation. Using a similarity metric find the average an the standard deviation of the dataset. Find all data points beyond a certain number of standard deviations from the center and throw out these points. The number of standard deviations is not always certain. In some cases it can be determined by the dataset size in others the number just needs to be expiremented with. The upside to this approach is it is simple and quick to implement, it is also possible to make it unsupervised by calculating the number of standard deviations. The problem with this approach is many datasets are not normal which makes the results less valid, also a center is needed and not all similarity metrics provide one, finally an outlying cluster can be identified as a group of outliers.</p>
+</div>
+</body>
+</html>

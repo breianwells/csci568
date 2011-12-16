@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<title>Association Analysis</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/main.css" type="text/css" media="screen" /> 
+<!--[if IE]>
+  <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+<![endif]-->
+</head>
+<body>
+<div class="container">
+  <h1>Data Mining Portfolio</h1>
+  <h2>Association Analysis</h2>
+  <p class="introduction">Association analysis identifies relationships between atributes. The association analysis method only finds associations in binary data which means any other forms have to be converted in some way, either by binning or by discretization. The associations that are found are in the form A^B^C => D^E. The associatoin listed means when A and B and C are true D is usually true. It works like an if-then statements so D^E => A^B^C may not have the same support. The associations created are useful when D is an attribute you are triing to predict.</p>
+<h3>Frequent Itemsets</h3>
+<p class="introduction">Determining frequent itemsets is the first step of association analysis. Frequent itemsets are attributes that appear together in at least a certain percentage of the data records. The percentage of time the itemset occures is the support of the itemset. To find all of the itemsets with a high enough support Apriori is used. Apriori is a theorm about subsets and supersets that allows the elimination of sets based strictly on the support of smaller sets. The therom states that if a set doesn't have sufficent support then all of it's supersets will not have sufficient support. The converse applies as well, if a set has sufficient support then all of it's subsets will have sufficient support.</p>
+<p class ="introduction">Apriori can be used to reduce the ammount of computation required to find frequent subsets. This is done by first testing all itemsets containing one item. If one of these sets doesn't meet the minimum support then all supersets can be eliminated as potential itemsets. All remaining itemsets of size two are tested and if they don't meet the requirements once again all supersets are removed. This is repeated until no itemsets remain to be tested. This gives all frequent itemsets.</p>
+<h3>Association Generation</h3>
+<p class="introduction">Once these itemsets have been created associations may be generated. Each combination of the itemsets are tested to determine the confidence of the association. The confidence is the support of the association divided by the support of the right side of the association. The confidence is the percentage of time when the left side of the association indicates the right side of the association. These associations are then filtered to interesting associations that can be used to predict values or as information about the dataset.</p>
+</div>
+</body>
+</html>

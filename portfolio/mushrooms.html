@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<title>Mushrooms Problem</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/main.css" type="text/css" media="screen" /> 
+<!--[if IE]>
+  <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+<![endif]-->
+</head>
+<body>
+<div class="container">
+  <h1>Data Mining Portfolio</h1>
+  <h2>Mushrooms Problem</h2>
+  <p class="introduction">The survey of poisonous mushrooms is an attempt to create rules to help people identify edible mushrooms. The attributes of mushrooms being considered include: cap-shape, cap-surface, cap-color, bruises, odor, gill-attachment, gill-spacing, gill-size, gill-color, stalk-shape, stalk-root, stalk-surface-above-ring, stalk-surface-below-ring, stalk-color-above-ring, stalk-color-below-ring, veil-type, veil-color, ring-number, ring-type,  spore-print-color, and population. The 8124 mushrooms included in the survey provide a suitably large data set for performing analysis.</p> 
+ <p class="introduction">
+A few of the summary statistics follow:</p>
+ <p class="introduction">
+Edible: 4208</p>
+ <p class="introduction">
+Poisonous: 3916</p>
+ <p class="introduction">
+One Ring: 7488</p>
+ <p class="introduction">
+Two Rings: 600</p>
+ <p class="introduction">
+No Rings: 36</p>
+ <p class="introduction">
+The remaining statistics may be found in the knime project and the meaning of the symbols in the mushrooms.txt file.</p>
+ <p class="introduction">
+Grouping proved unsuccessful. Using k-means clustering with a K of 2 created two groups one of 3064 mushrooms and the other cluster is 5060 mushrooms. Both contain roughly equal numbers of poisonous and edible mushrooms. The data used to calculate the clusters was modified into binary columns of each attribute value. This version of the data is in cleanedMushroomsBin.txt</p>
+ <p class="introduction">
+The classification model created using 100 and 273 mushrooms created a decent model however unless a very large portion of the data is used there is still mistakes. In normal data this would be considered acceptable however if a poisonous mushroom is mistaken as edible it is catastrophic. The results of the  273 sized data set are listed below.</p>
+ <pre class="code">
+		Edible		Poisonous
+Edible		3312		896
+Poisonous	1584		2332
+</pre>
+ <p class="introduction">
+The outliers of the dataset are the grooved cap surface and the cup cap shape. Both only have 4 mushrooms inside of the group. Knime provides no outlier tools and I couldn't find them in Weka.</p>
+ <p class="introduction">
+Association rules are possible to generate however the support is never above .5 even though the confidence values are up to a full 1. The rules that apply to edibility are listed inside the knime project.</p>
+</div>
+</body>
+</html>

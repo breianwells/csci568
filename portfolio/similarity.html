@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<title>Similarity Metrics</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/main.css" type="text/css" media="screen" /> 
+<!--[if IE]>
+  <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+<![endif]-->
+</head>
+<body>
+<div class="container">
+  <h1>Data Mining Portfolio</h1>
+  <h2>Similarity Metrics</h2>
+  <p class="introduction">Similarity Metrics form the basis of many data mining techniques. Similarity determines how two objects are related in a mathmatical sense. Each similarity metric has a different intent and a different method of determining the similarity. This gives each metric it's own strengths and weaknesses.</p>
+<h3>Euclidean Distance</h3>
+<p class ="introduction">Euclidean distance works on binary and ordinal data types. It is very simple, how far are the data points apart. To calculate euclidean distance find the difference between the values of each attribute for two data points. Square each difference and add the squares together. Then take the square root of the total to find the euclidean distance. This is simply an extension of using pathgrean's theorm to find the length of the hypotenuse.</p>
+  <pre class="code">
+public static double euclidean(double[]a,double[]b){
+	double ret=0;
+	if(a.length==b.length){
+		for(int i =0; i&lt;a.length;i++){
+			ret=ret+(a[i]-b[i])*(a[i]-b[i]);
+		}
+		ret=Math.sqrt(ret);
+	}
+	else{
+		ret=-1;
+	}
+	return ret;
+}
+  </pre>
+<h3>Simple Matching Coefficient (SMC)</h3>
+<p class="introduction">Simple Matching Coefficient only works with binary data. SMC compares two records by dividing the total number of attributes the two records have the same value by the total number of attributes. It works well where the binary data is symmetric, because in SMC considers both ones and zeros.</p>
+<pre class="code">
+public static double simpleMatching(double[]a,double[]b){
+	double ret = 0;
+	int i;
+	if(a.length==b.length){
+		for(i=0;i&lt;a.length;i++){
+			if(a[i]==b[i]){
+				ret++;
+			}
+		}
+		ret=ret/a.length;
+	}
+	else{
+		ret=-1;
+	}	
+	return ret;
+}
+</pre>
+<h3>Jaccard</h3>
+<p class="introduction">Jaccard distance is an extension of SMC used on assymetric binary data. The extension is that only ones are considered. This is done by dividing the total number of instances where both records have a one by the total number of attributes where either record has a one. This helps with market basket data where most records are comprised of a few ones and many zeros which causes all records to be very similar.</p>
+<pre class="code">
+public static double jaccard(double[]a,double[]b){
+	double ret=0;
+	double divisor=0;
+	int i;
+	if(a.length==b.length){
+		for(i=0;i<a.length;i++){
+			if(a[i]>0 || b[i]>0){
+				if(a[i]>0 &&b[i]>0){
+					ret++;
+				}
+				divisor++;
+			}
+		}
+		ret=ret/divisor;
+	}
+	else{
+		ret=-1;
+	}
+	return ret;
+}
+</pre>
+<h3>Tanimoto</h3>
+<p class="introduction">Tanimoto uses a similar principle to Jaccard distance, however it accepts more than just binary data. Tanimoto distance is calculated by taking the dot product of the two data vectors and dividing the result by the magnitude of the two vectors summed together minus the dot product. If done with binary data the result is the complement to the Jaccard similarity. Tanimoto is used on data sets where a property can be absent or have other ordinal values.</p>
+<h3>Pearson Correlation</h3>
+<p class="introduction">Pearson Correlation is used to determine how well the attributes fit to a line. Pearson identifies how similar the difference between each attribute is for a pair of records. This is used when there is a reason to consider one record being linearly depandant on another record. This metric is used in ratings and score data sets where two different records may be scaled differently.</p>
+<pre class="code">
+public static double pearson(double[]a,double[]b){
+	double ret;
+	double sum1=0,sum2=0,sum1sq=0,sum2sq=0,psum=0;
+	double denominator;
+	if(a.length==b.length){
+		for(int i=0;i&lt;a.length;i++){
+			sum1=sum1+a[i];
+			sum2=sum2+b[i];
+			sum1sq=sum1sq+a[i]*a[i];
+			sum2sq=sum2sq+b[i]*b[i];
+			psum=psum+a[i]*b[i];
+		}
+		denominator=Math.sqrt((sum1sq-sum1*sum1/a.length)*(sum2sq-sum2*sum2/a.length));
+		if(denominator==0){
+			ret=0;
+		}
+		else{
+			ret=(psum-sum1*sum2/a.length)/denominator;
+		}
+	}
+	else{
+		ret=-2;
+	}
+	
+	return ret;
+}
+</pre>
+<h3>Cosine Similarity</h3>
+<p class="introduction">Cosine Similarity is the cosine of the angle between two data objects. This is calculated by taking the dot product of the two records and dividing the result by the magnitude of each vector. This means the records are most similar when the result is one, completely opposite when the result is negative one, with a continuous change in-between. Cosine similarity can also identify when two records are related...but opposite. This gives more flexibility when opposite records also may have a bearing on the results.</p>
+<pre class="code">
+public static double cosine(double[]a,double[]b){
+	double ret;
+	double psum=0,sum1sq=0,sum2sq=0;
+	if(a.length==b.length){
+		for(int i=0;i&lt;a.length;i++){
+			sum1sq=sum1sq+a[i]*a[i];
+			sum2sq=sum2sq+b[i]*b[i];
+			psum=psum+a[i]*b[i];
+		}
+		ret=psum/(Math.sqrt(sum1sq)*Math.sqrt(sum2sq));
+	}
+	else{
+		ret=-2;
+	}
+	return ret;
+}
+</pre>
+<h3>Path Similarity</h3>
+<p class="introduction">Path Similarity is a similarity metric I devised to deal with some weaknesses in other complex similarity metrics not listed here. Path similarity is used to determine how similar two paths are through distict objects such as pages in a web site. Most current methods "edit" the paths to make them exactly the same, the number of edits is the distance between them. My Path Similarity identifies similar subpaths and determines the difference in the location of each subpath. This lets the algorithm identify subpaths that are in different orders. Path similarity has several downsides, first there is no defined centroid which prevents use of path similarity with several algorithms. Second there is a speed issue, the similarity metrics above are O(n) while path similarity is O(n^2). Finaly it is restricted to vectors of integers where the integers are nominal representations of objects. Even with these negative effects it does provide a different way of comparing one type of data.</p>
+<pre class="code">
+public static double findPathDistance(Vector<Integer> firstPath, Vector<Integer> secondPath){
+	double ret=0;
+	double avgLen;
+	int firstPathValue;
+	int secondPathSize = secondPath.size();
+	avgLen=firstPath.size()+secondPath.size();
+	Vector<Integer> currentPaths;
+	currentPaths=new Vector<Integer>();
+	int curlength=0;
+	int curDist = 0;
+	int minDist=1;
+	avgLen=avgLen/2;	
+	for(int i =0;i&lt;firstPath.size();i++){
+		firstPathValue=firstPath.get(i);
+		if(currentPaths.size()==0){
+			for(int j =0;j&lt;secondPath.size();j++){
+				if(secondPath.get(j)==firstPathValue){
+					currentPaths.add(j);
+				}
+			}
+			if(currentPaths.size()>0){
+				curlength=1;
+			}
+		}
+		else{
+			minDist=Integer.MAX_VALUE;
+			for(int j = 0; j&lt;currentPaths.size();j++){
+				currentPaths.set(j, currentPaths.get(j)+1);
+				if(secondPathSize==currentPaths.get(j)){
+					curDist=Math.abs(currentPaths.get(j)-i);
+					if(curDist&lt;minDist){
+						minDist=curDist;
+					}
+					currentPaths.remove(j);
+					j--;
+				}
+				else if(secondPath.get(currentPaths.get(j))!=firstPathValue){
+					curDist=Math.abs(currentPaths.get(j)-i);
+					if(curDist&lt;minDist){
+						minDist=curDist;
+					}
+					currentPaths.remove(j);
+					j--;
+				}
+			}
+			if(currentPaths.size()&gt;0){
+				curlength++;
+			}
+			else{
+				ret=ret+(Math.pow(curlength/avgLen,1.25)*
+					Math.pow((double)1/(minDist+1),.33));
+			}
+		}
+	}
+	if(currentPaths.size()&gt;0){
+		firstPathValue=firstPath.size()-1;
+		minDist=Integer.MAX_VALUE;
+		for(int i = 0;i&lt;currentPaths.size();i++){
+			curDist=Math.abs(currentPaths.get(i)-firstPathValue);
+			if(minDist&gt;curDist){
+				minDist=curDist;
+			}
+		}
+		ret=ret+(Math.pow(curlength/avgLen,1.25)*Math.pow((double)1/(minDist+1),.33));
+	}	
+	return ret;
+}
+</pre>
+</div>
+</body>
+</html>

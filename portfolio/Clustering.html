@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<title>Clustering</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<link rel="stylesheet" href="css/blueprint/screen.css" type="text/css" media="screen, projection" />
+<link rel="stylesheet" href="css/blueprint/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="css/main.css" type="text/css" media="screen" /> 
+<!--[if IE]>
+  <link rel="stylesheet" href="css/blueprint/ie.css" type="text/css" media="screen, projection">
+<![endif]-->
+</head>
+<body>
+<div class="container">
+  <h1>Data Mining Portfolio</h1>
+  <h2>Clustering</h2>
+  <p class="introduction">Clustering is a data mining technique used to discover previously unknown groups. These groups can be used to predict future values or create a classification. Each cluster can be analysed to give an indication of how the clusters may be of use.</p>
+<h3>K-Means Clustering</h3>
+<p class="introduction">The first step in K-Means clustering is to determine the value to use as K. The value of K corresponds to the number of clusters that the algorithm produces. After the value of K is provided K-Means clustering randomly places a point for each cluster. After the points have been placed each record of the dataset is assigned with the nearest of the K points. Once all records have been assigned the each point is moved to the centroid of all it's assigned records. The assignment and movement is repeated until there is no change or the max number of iterations has been reached.</p>
+<p class="introduction">The "prototypical" element of each cluster is the centroid. This element gives a basic idea of what the records of the cluster are like. The clusters of K-Means are roughly sphereical. When assigning a new record to a cluster you assign it to the closest centroid, this is called partitional because each location in the data-space is associated with a single cluster. K-Means is good for creating clusters when it is necessary to assign new records to the dataset.</p>
+<h3>Agglomerative Hierarchical Clustering</h3>
+<p class="introduction">For agglomerative hierarchical clustering each point becomes it's own cluster. The distance between each cluster is calculated and the closest two are combined into a single cluster. The new cluster is identified by it's centroid and the distances are recalculated. The algorithm stops when only one cluster exists. At this point to identify the useful clusters the last combinations are reversed.</p>
+<p class="introduction">Hierarchical clusters also are roughly sphereical. They are not partitional which the data-space is not divided into each cluster. Agglomerative clusters always return the same result unlike K-Means because there is no random component which can give more precise results. Agglomerative clustering is useful when the optimal globular clusters are desired and there is no need to assign new points to the clusters.</p>
+<h3>DB Scan</h3>
+<p class="introduction">DB Scan is a density based clustering algorithm. DB Scan works with an epsilon and a numpoints parameter. One record is considered and the count of records within the epsilon parameter is determined. If the count is greater than or equal to numpoints it becomes the seed for a cluster. Each of the points within epsilon are then tested. Everyone that passes the numpoints test adds it's points to the cluster and the testing continues. After the cluster has completed a new point not in the cluster is tested to become a seed. Once all points have been processed those not in a cluster are labeled as noise.</p>
+<p class="introduction">DB Scan and other density based approaches can identify non-globular clusters. The downside is that there is no prototypical record. This can also be an upside because similarity metrics do exist where there is no way to create a prototype. Density based approaches are also useful because the clusters are not restricted to any shape. This makes them the most flexible. Finally noise doesn't affect them because the noise points are ignored. Density based clustering works poorly when there are different density clusters in the data.</p>
+</div>
+</body>
+</html>
